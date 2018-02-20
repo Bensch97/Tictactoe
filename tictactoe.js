@@ -30,6 +30,11 @@ handleClick = function (event) {
 
     playerSelections.push(parseInt(cell.id));
 
+    if(checkWinner(playerSelections)) {
+        alert("Player " + currentPlayer + " wins!")
+        resetGame();
+      }
+      
     if(checkDraw()) {
         alert("Draw!");
         resetGame();
@@ -62,13 +67,7 @@ function checkWinner(playerSelections) {
             if (winningCombo.includes(cellInPlayerSelections)) {
                 matches++
                 if (matches >= 3) {
-                    if (playerSelections = playerXSelections) {
-                        alert('X wins')
-                        resetGame();
-                    } else if (playerSelections = playerOSelections) {
-                        alert('O wins')
-                        resetGame();
-                    }
+                    return true
                 }
             }
         }
